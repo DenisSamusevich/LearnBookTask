@@ -65,11 +65,16 @@ namespace Task002
         {
             double pounds;
             double kg;
-
-            pounds = Math.Round(Convert.ToDouble(textBoxInputNumberPounds.Text),3);
-            kg= Math.Round(pounds* 0.453592,3);
-
-            labelTextResultKilogram.Text = pounds.ToString()+" ф. = " + kg.ToString() + " кг";
+            try
+            {
+                pounds = Math.Round(Convert.ToDouble(textBoxInputNumberPounds.Text), 3);
+                kg = Math.Round(pounds * 0.453592, 3);
+                labelTextResultKilogram.Text = pounds.ToString() + " ф. = " + kg.ToString() + " кг";
+            }
+            catch (Exception)
+            {
+                textBoxInputNumberPounds.Focus();
+            }
         }
 
     }
